@@ -7,9 +7,14 @@
 }
 
 body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
     background-image: url("../img/background.jpg");
     background-position: center;
     background-size: cover;
+    
 }
 
 button {
