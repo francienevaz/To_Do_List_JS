@@ -6,6 +6,7 @@ const todoList = document.querySelector("#todo-list");
 const editForm = document.querySelector("#edit-form");
 const editInput = document.querySelector("#edit-input");
 const cancelEditBtn = document.querySelector("#cancel-edit-btn");
+const btnSavePdf = document.querySelector("#save");
 
 let oldInputValue;
 
@@ -118,3 +119,18 @@ editForm.addEventListener("submit", (e) => {
 
     toggleForms();
 } )
+
+// Gerar o arquivo PDF
+
+btnSavePdf.addEventListener("click", () => {
+    const options = {
+        margin: [50, 50, 50, 50],
+        filename: "todoList.pdf",
+        html2canvas: {scale: 2},
+        jsPDF: {unit: "mm", format: "a4", orientation: "portrait"}
+    };
+
+    html2pdf().set(options).from(todoList).save();
+
+
+})
